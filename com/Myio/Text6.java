@@ -1,22 +1,24 @@
 package com.Myio;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.io.FileFilter;
 
+/**
+ * 获取并输出当前目录下所有文件的名字
+ * @author Xiloer
+ *
+ */
 public class Text6 {
     public static void main(String[] args) {
-        File file = new File("myfile.txt");
-        String name = file.getName();
-        System.out.println("名字:"+name);
+        File dir = new File(".");
+        File []subs = dir.listFiles(new FileFilter(){
+            public boolean accept(File file) {
+                return file.isFile();
+            }
 
-        long length = file.length();
-        System.out.println("大小:"+length+"字节");
-
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        long lastModified = file.lastModified();
-        System.out.println("最后修改时间:"+sdf.format(new Date(lastModified)));
+        });
+        for(File sub : subs){
+            System.out.println("文件:"+sub.getName());
+        }
     }
-
-
 }

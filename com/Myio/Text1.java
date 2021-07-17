@@ -14,7 +14,7 @@ public class Text1 {
         System.out.println("大小:"+length+"字节");
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        long lastModified = file.lastModified();
+        long lastModified = file.lastModified();https://
         System.out.println("最后修改时间:"+sdf.format(new Date(lastModified)));
     }
 }
